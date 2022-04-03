@@ -252,6 +252,11 @@ body {
     box-shadow: 0px 2px 5px 0px #101c1f40;
 }
 
+.card:hover {
+    background-color: #101c1f;
+    text-decoration: none;
+    color: white;
+}
 .bannercard {
     background-color: #57575730 ;
     display: flex;

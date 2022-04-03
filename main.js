@@ -61,11 +61,11 @@ function createEvent(e, i) {
 
   return `<article>
           
-          <div class="card">
+  <a href="${e.description}"><div class="card">
           
        
-              <a href="${e.description}"><p class="white text-xs text-center">${e.dateRange} - ${e.name},  ${e.location}</p></a>
-            </div>
+              <p class="white text-xs text-center">${e.dateRange} - ${e.name},  ${e.location}</p>
+            </div></a>
         </article>`
 }
 
