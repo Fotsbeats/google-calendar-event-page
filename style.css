@@ -1,3 +1,371 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1F373B;
+    color: #ffffff;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #101c1f;
+    width: 10px;
+}
+
+.logo img {
+    width: 300px;
+    max-width: 60%;
+    height: auto;
+    position: relative;
+    display: block;
+    padding-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 2;
+   
+    }
+    
+
+.maingif img {
+    width: 850px;
+    max-width: 85%;
+    border-radius: 7px 7px 0px 0px;
+    position: relative;
+    display: block;
+    margin-top: -2.7rem;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 1px 0px 5px 0px #101c1f40;
+    z-index: 1;
+    }
+
+.calgif img {
+    width: 850px;
+    max-width: 85%;
+    border-radius: 7px 7px 7px 7px;
+    position: relative;
+    display: block;
+    margin-top: -2.7rem;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 1px 0px 5px 0px #101c1f40;
+    z-index: 1;
+    }
+
+.button {
+  width: 850px;
+  max-width: 85%;
+  border-radius: 7px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: .25rem;
+  background-color: #57575730;
+  border: none;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  justify-content: middle;
+  text-decoration: none;
+  display: none;
+  font-size:25pt;
+  font-weight: bold;
+  
+}
+
+.button img {
+    margin-left: .25em;
+}
+
+.button:hover {
+    background-color: #101c1f;
+    text-decoration: none;
+    color: white;
+    
+
+}
+
+.menucontainer {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 850px;
+    height: 80px;
+    max-width: 85%;
+    background-color: #57575730;
+    border-radius: 0px 0px 7px 7px;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    box-shadow: 0px 2px 5px 0px #101c1f40;
+    z-index: 2;
+    
+    
+}
+
+.desktopbutton {
+    height: 60px;
+    width: 60px;
+    border-radius: 7px;
+    background-color: #57575730;
+    display: flex;
+    flex-basis: auto;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    margin: 3px;
+    text-decoration: none;
+    color: white;
+    font-size: 15pt;
+    font-weight: bold;
+    
+    
+    }
+ 
+
+
+
+.desktopbutton:hover {
+    background-color: #101c1f25;
+    text-decoration: none;
+    color: white;
+    
+}
+
+.footerimage {
+    width: 460px;
+    max-width: 60%;
+    position: relative;
+    display: block;
+    margin-top: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
+    
+
+}
+
+.music {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 850px;
+    max-width: 100%;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    
+    z-index: 2;
+    
+    
+}
+
+.mixtape img {
+    width: 900px;
+    max-width:100%;
+    border-radius: 7px;
+    position: relative;
+    display: flex;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+.otdemusic {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 900px;
+    max-width: 92%;
+    margin-top: -.75rem;
+    margin-bottom: .75rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    
+    z-index: 2;
+    
+    
+}
+
+.downloadbutton {
+  width: 320px;
+  height: 40px;
+  border-radius: 7px;
+  background-color: #57575730;
+  display: flex;
+  flex-basis: auto;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  margin: 2px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 11px;
+  
+}
+
+.downloadbutton:hover {
+    background-color: #101c1f;
+    text-decoration: none;
+    color: white;
+    
+    
+
+}
+
+.card {
+    background-color: #57575730 ;
+    display: flex;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    max-width: 90%;
+    padding: 10px;
+    border-radius: 7px;
+    box-shadow: 0px 2px 5px 0px #101c1f40;
+}
+
+.bannercard {
+    background-color: #57575730 ;
+    display: flex;
+    flex-basis: auto;
+    flex-direction: column;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+    max-width: 90%;
+    min-height: 150px;
+    border-radius: 7px;
+    box-shadow: 0px 2px 5px 0px #101c1f40;
+    font-size: 15px;
+
+}
+
+.bannercard:hover {
+    background-color: #101c1f; ;
+    text-decoration: none;
+    color: #ffffff;
+
+}
+
+.drakeupmusic {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 900px;
+    max-width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    
+    z-index: 2;
+    
+    
+}
+.drakeupcontainer {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 900px;
+    height: auto;
+    max-width: 100%;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    z-index: 2;
+    
+    
+}
+
+.musicbanner {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80%;
+    width: 350px;
+}
+
+.calendar {
+    display: flex;
+    flex-basis: auto;
+    align-items: center;
+    color: #ffffff;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 850px;
+    max-width: 85%;
+    height: 600px;
+    border-radius: 7px;
+
+}
+
+
+
+
+    
+
+@media (max-width: 600px) {
+    .button {
+        display: flex;
+    }
+
+    .desktopbutton {
+        display: none;
+    }
+
+    .menucontainer {
+        display: none;
+        
+    }
+
+    .maingif img {
+        border-radius: 7px 7px 7px 7px;
+        box-shadow: none;
+    }
+
+    .drakeupcontainer {
+        
+    }
+
+
+    
+}
