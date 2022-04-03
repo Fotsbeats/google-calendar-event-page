@@ -1,4 +1,5 @@
 import './style.css'
+import './custom.css'
 
 const eventContainer = document.querySelector('#events-container');
 const eventAmtToFetch = document.querySelector('#eventAmt');
