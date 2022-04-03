@@ -61,7 +61,7 @@ function createEvent(e, i) {
 
   return `<article>
           
-  <a href="${e.description}"><div class="card">
+  <a href="${e.description}" target="_blank"><div class="card">
           
        
               <p class="white text-xs text-center">${e.dateRange} - ${e.name},  ${e.location}</p>
