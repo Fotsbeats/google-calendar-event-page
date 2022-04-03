@@ -1,0 +1,13 @@
+
+
+* {
+  font-family: 'Helvetica';
+    font-size: 1.2rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+html {
+    background-color: #1F373B;
+}

@@ -57,44 +57,21 @@ function mapEventObject(event){
 }
 
 function createEvent(e, i){
-  const colors = ['blue', 'amber', 'rose', 'indigo', 'pink'];
-  const colorScheme = colors[getRandomNumBetween(0, colors.length - 1)]
-  return `<article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
-          <div class="p-3 shadow bg-${colorScheme}-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
-            <div class="text-sm">${e.start.month}</div>
-            <div class="text-3xl font-bold">${e.start.date}</div>
-          </div>
-          <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
-            <div class="grid gap-1">
-              <p class="text-slate-400 text-sm">${e.dateRange}</p>
-              <h2 class="font-bold text-2xl">
-              <a href="${e.link}">${e.name}</a>
-              ${e.location 
-                ? `<p class="text-slate-400 text-sm">${e.location}</p>`
-                : ''}
-              </h2>
-              ${
-              e.description
-              ? `<div class="grid gap-1">
-                <button class="text-slate-400 flex gap-1 items-center cursor-pointer" aria-expanded="false" aria-controls="details-${i}" id="btn-${i}">
-                  <p class="pointer-events-none">See details</p>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 pointer-events-none transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                <div class="grid gap-1 hidden" id="details-${i}" aria-labelledby="btn-${i}">
-                  <p class="text-slate-400">${e.description}</p>
-                </div>
-              </div>
-            </div>`
-            : '<div class="h-4"></div>'
-            }
-            <a href="${e.link}" class="bg-${colorScheme}-500 rounded-md px-4 py-2 text-${colorScheme}-50 shadow-2xl shadow-${colorScheme}-200 dark:shadow-none text-center font-bold hover:shadow-none ring ring-offset-0 ring-${colorScheme}-500 focus:outline-none focus:ring-offset-2">View Event</a>
+  
+  
+  return `<article>
+          
+          <div class="card">
+            
+              <p class="white text-xs text-center">${e.dateRange} - ${e.name},  ${e.location}</p>
+              
+          
+            
           </div>
         </article>`
 }
 
-async function loadEvents(max=8){
+async function loadEvents(max=200){
   try {
     const endpoint = await fetch(`./.netlify/functions/calFetch?maxResults=${max}`);
     const data = await endpoint.json();
