@@ -62,8 +62,9 @@ function createEvent(e, i){
   return `<article>
           
           <div class="card">
+          
             
-              <p class="white text-xs text-center">${e.dateRange} - ${e.name},  ${e.location}</p>
+              <p class="white text-xs text-center">${e.dateRange} - ${e.name},  ${e.location}</p> 
               
           
             
