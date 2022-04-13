@@ -3,15 +3,6 @@ import './style.css'
 const eventContainer = document.querySelector('#events-container');
 const eventAmtToFetch = document.querySelector('#eventAmt');
 
-const dateP = document.querySelector('#date');
-
-const today = new Date()
-today.setDate(today.getDate() - 1)
-today.toISOString()
-
-dateP.textContent = today;
-
-
 const getRandomNumBetween = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 const getMonth = (month) => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][month];
 const getDayOfWeek = (weekday) => ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][weekday]
