@@ -2,13 +2,19 @@ import './style.css'
 
 const eventContainer = document.querySelector('#events-container');
 const eventAmtToFetch = document.querySelector('#eventAmt');
+const date = document.querySelector('#date');
 
+const today = new Date()
+today.setDate(today.getDate() - 1)
+today.toISOString()
 const getRandomNumBetween = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 const getMonth = (month) => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][month];
 const getDayOfWeek = (weekday) => ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][weekday]
 const isAM = (hour) => hour < 12;
 const getHour = (hour) => (hour <= 12 ? hour : hour - 12);
 const getMinute = (minute) => (minute === 0 ? '00' : minute);
+
+date.textContent = today;
 
 function processDate(date) {
   const hour = getHour(date.getHours()) === 0
