@@ -1,5 +1,14 @@
 import './style.css'
 
+const dateP = document.querySelector('#date');
+
+const today = new Date()
+today.setDate(today.getDate() - 1)
+today.toISOString()
+
+dateP.textContent = today;
+
+
 const eventContainer = document.querySelector('#events-container');
 const eventAmtToFetch = document.querySelector('#eventAmt');
 
