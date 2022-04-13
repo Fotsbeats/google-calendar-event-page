@@ -10,14 +10,6 @@ const isAM = (hour) => hour < 12;
 const getHour = (hour) => (hour <= 12 ? hour : hour - 12);
 const getMinute = (minute) => (minute === 0 ? '00' : minute);
 
-const dateP = document.querySelector('#date');
-
-const today = new Date()
-today.setDate(today.getDate() - 1)
-today.toISOString()
-
-dateP.textContent = today;
-
 function processDate(date) {
   const hour = getHour(date.getHours()) === 0
     ? false
