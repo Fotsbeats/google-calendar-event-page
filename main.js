@@ -23,9 +23,9 @@ function processDate(date) {
 
   return {
     month: getMonth(date.getMonth()),
-    weekday: getDayOfWeek(date.getDay()),
+    weekday: getDayOfWeek(date.getDay() - 1),
     time,
-    date: date.getDate() - 1),
+    date: date.getDate(),
   }
 }
 
