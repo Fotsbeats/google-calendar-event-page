@@ -1,7 +1,9 @@
 import fetch from 'node-fetch';
-
 const { CAL_API, CAL_ID } = process.env;
-const BASEPARAMS = `orderBy=startTime&singleEvents=true&timeMin=${new Date().toISOString()}`
+
+const today = new Date()
+today.setDate(today.getDate() - 2)
+const BASEPARAMS = `orderBy=startTime&singleEvents=true&timeMin=${today.toISOString()}`
 const BASEURL = `https://www.googleapis.com/calendar/v3/calendars/${CAL_ID}/events?${BASEPARAMS}`
 
 const HEADERS = {
