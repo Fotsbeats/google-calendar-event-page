@@ -38,7 +38,7 @@ function mapEventObject(event) {
     : processDate(new Date(`${event.end.date}T00:00:00`))
   let dateRange;
   if (startDate.date !== endDate.date) {
-    dateRange = `${startDate.month} ${startDate.date}–${endDate.month} ${endDate.date}`
+    dateRange = `${startDate.month} ${startDate.date}`
   } else if (!startDate.time) {
     dateRange = `${startDate.month} ${startDate.date}`;
   } else {
