@@ -69,23 +69,47 @@ async function loadEvents() {
                 }
             }
             
-            // Check for URL in description
-            let eventNameHTML = `<strong>${eventName}</strong>`;
+            // Build the date and location parts
+            let displayText = `${formattedDate} - `;
+            
+            // Create event name element (link or plain text)
             if (event.description) {
-                // Look for URLs in the description
                 const urlRegex = /(https?:\/\/[^\s]+)/g;
                 const urls = event.description.match(urlRegex);
                 if (urls && urls.length > 0) {
-                    // Use the first URL found - make event name clickable
-                    eventNameHTML = `<a href="${urls[0]}" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: none;"><strong>${eventName}</strong></a>`;
+                    // Create clickable link
+                    const link = document.createElement('a');
+                    link.href = urls[0];
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    link.style.color = '#ffffff';
+                    link.style.textDecoration = 'none';
+                    
+                    const strong = document.createElement('strong');
+                    strong.textContent = eventName;
+                    link.appendChild(strong);
+                    
+                    eventDiv.innerHTML = displayText;
+                    eventDiv.appendChild(link);
+                } else {
+                    // No link - just bold text
+                    eventDiv.innerHTML = `${displayText}<strong>${eventName}</strong>`;
                 }
+            } else {
+                // No description - just bold text
+                eventDiv.innerHTML = `${displayText}<strong>${eventName}</strong>`;
             }
             
-            // Build the display string: "9/20 - The Ivy - Huntington, NY"
-            eventDiv.innerHTML = `${formattedDate} - ${eventNameHTML}${location ? ' - ' + location : ''}`;
+            // Add location if exists
+            if (location) {
+                const locationText = document.createTextNode(` - ${location}`);
+                eventDiv.appendChild(locationText);
+            }
             
             wrapper.appendChild(eventDiv);
         });
+        
+        eventsContainer.appendChild(wrapper);
         
         eventsContainer.appendChild(wrapper);
         
