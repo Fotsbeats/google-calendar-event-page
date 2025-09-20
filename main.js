@@ -69,8 +69,20 @@ async function loadEvents() {
                 }
             }
             
+            // Check for URL in description
+            let eventNameHTML = `<strong>${eventName}</strong>`;
+            if (event.description) {
+                // Look for URLs in the description
+                const urlRegex = /(https?:\/\/[^\s]+)/g;
+                const urls = event.description.match(urlRegex);
+                if (urls && urls.length > 0) {
+                    // Use the first URL found
+                    eventNameHTML = `<strong><a href="${urls[0]}" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: underline;">${eventName}</a></strong>`;
+                }
+            }
+            
             // Build the display string: "9/20 - The Ivy - Huntington, NY"
-            eventDiv.innerHTML = `${formattedDate} - <strong>${eventName}</strong>${location ? ' - ' + location : ''}`;
+            eventDiv.innerHTML = `${formattedDate} - ${eventNameHTML}${location ? ' - ' + location : ''}`;
             
             wrapper.appendChild(eventDiv);
         });
