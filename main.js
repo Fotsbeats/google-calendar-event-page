@@ -19,20 +19,25 @@ async function loadEvents() {
         eventsContainer.innerHTML = '';
         
         if (!data.items || data.items.length === 0) {
-            eventsContainer.innerHTML = '<p class="white text-center">No upcoming events</p>';
+            eventsContainer.innerHTML = '<p class="text-white text-center">No upcoming events</p>';
             return;
         }
         
-        // Create a list of events
-        const eventsList = document.createElement('ul');
-        eventsList.className = 'events-list';
-        
         data.items.forEach(event => {
-            const li = document.createElement('li');
-            li.className = 'event-item';
+            const eventDiv = document.createElement('p');
+            eventDiv.className = 'text-white text-xs font-bold pb-2 text-center';
             
-            // Format the date
-            const startDate = new Date(event.start.dateTime || event.start.date);
+            // Handle date formatting - fixes timezone issue for all-day events
+            let startDate;
+            if (event.start.date) {
+                // All-day event - parse as local date to avoid timezone shift
+                const [year, month, day] = event.start.date.split('-');
+                startDate = new Date(year, month - 1, day);
+            } else {
+                // Timed event
+                startDate = new Date(event.start.dateTime);
+            }
+            
             const options = { weekday: 'long', month: 'numeric', day: 'numeric' };
             const formattedDate = startDate.toLocaleDateString('en-US', options);
             
@@ -43,16 +48,14 @@ async function loadEvents() {
             const location = event.location || '';
             
             // Build the display string: "Saturday 9/20 The Ivy, Huntington NY"
-            li.textContent = `${formattedDate} ${eventName}${location ? ', ' + location : ''}`;
+            eventDiv.textContent = `${formattedDate} ${eventName}${location ? ', ' + location : ''}`;
             
-            eventsList.appendChild(li);
+            eventsContainer.appendChild(eventDiv);
         });
-        
-        eventsContainer.appendChild(eventsList);
         
     } catch (error) {
         console.error('Error loading events:', error);
-        eventsContainer.innerHTML = `<p class="white text-center">Error loading events: ${error.message}</p>`;
+        eventsContainer.innerHTML = `<p class="text-white text-center">Error loading events: ${error.message}</p>`;
     }
 }
 
