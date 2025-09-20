@@ -50,19 +50,26 @@ async function loadEvents() {
                 startDate = new Date(event.start.dateTime);
             }
             
-            // Format date as M/D/YY
+            // Format date as M/D (without year)
             const month = startDate.getMonth() + 1;
             const day = startDate.getDate();
-            const year = startDate.getFullYear().toString().slice(-2);
-            const formattedDate = `${month}/${day}/${year}`;
+            const formattedDate = `${month}/${day}`;
             
             // Get event name
             const eventName = event.summary || 'Untitled Event';
             
-            // Get location
-            const location = event.location || '';
+            // Get and format location
+            let location = event.location || '';
+            if (location) {
+                // Remove ", USA" from the end
+                location = location.replace(/, USA$/i, '');
+                // Replace "NYC" with "New York, NY"
+                if (location.trim() === 'NYC') {
+                    location = 'New York, NY';
+                }
+            }
             
-            // Build the display string: "9/20/25 - The Ivy - Huntington, NY"
+            // Build the display string: "9/20 - The Ivy - Huntington, NY"
             eventDiv.innerHTML = `${formattedDate} - <strong>${eventName}</strong>${location ? ' - ' + location : ''}`;
             
             wrapper.appendChild(eventDiv);
