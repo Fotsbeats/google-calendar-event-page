@@ -76,8 +76,8 @@ async function loadEvents() {
                 const urlRegex = /(https?:\/\/[^\s]+)/g;
                 const urls = event.description.match(urlRegex);
                 if (urls && urls.length > 0) {
-                    // Use the first URL found
-                    eventNameHTML = `<strong><a href="${urls[0]}" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: underline;">${eventName}</a></strong>`;
+                    // Use the first URL found - make event name clickable
+                    eventNameHTML = `<a href="${urls[0]}" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: none;"><strong>${eventName}</strong></a>`;
                 }
             }
             
