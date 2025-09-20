@@ -6,12 +6,12 @@ async function loadEvents() {
     const eventsContainer = document.getElementById('events-container');
     
     try {
-        // Get date from 2 weeks ago
-        const twoWeeksAgo = new Date();
-        twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 14);
-        const timeMin = twoWeeksAgo.toISOString();
+        // Get date from 1 week ago
+        const oneWeekAgo = new Date();
+        oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+        const timeMin = oneWeekAgo.toISOString();
         
-        const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(CALENDAR_ID)}/events?key=${API_KEY}&timeMin=${timeMin}&singleEvents=true&orderBy=startTime&maxResults=20`;
+        const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(CALENDAR_ID)}/events?key=${API_KEY}&timeMin=${timeMin}&singleEvents=true&orderBy=startTime&maxResults=30`;
         
         const response = await fetch(url);
         const data = await response.json();
@@ -33,7 +33,7 @@ async function loadEvents() {
             eventDiv.style.color = '#ffffff';
             eventDiv.style.fontSize = '0.75rem';
             eventDiv.style.paddingBottom = '0.5rem';
-            eventDiv.style.textAlign = 'center';
+            eventDiv.style.textAlign = 'left';
             
             // Handle date formatting - display in EST
             let startDate;
