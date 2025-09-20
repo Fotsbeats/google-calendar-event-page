@@ -27,13 +27,17 @@ async function loadEvents() {
             return;
         }
         
+        // Create wrapper for left-aligned content within centered container
+        const wrapper = document.createElement('div');
+        wrapper.style.display = 'inline-block';
+        wrapper.style.textAlign = 'left';
+        
         data.items.forEach(event => {
             const eventDiv = document.createElement('p');
             // Use inline style to ensure white color shows
             eventDiv.style.color = '#ffffff';
             eventDiv.style.fontSize = '0.75rem';
             eventDiv.style.paddingBottom = '0.5rem';
-            eventDiv.style.textAlign = 'left';
             
             // Handle date formatting - display in EST
             let startDate;
@@ -61,8 +65,10 @@ async function loadEvents() {
             // Build the display string: "9/20/25 - The Ivy - Huntington, NY"
             eventDiv.innerHTML = `${formattedDate} - <strong>${eventName}</strong>${location ? ' - ' + location : ''}`;
             
-            eventsContainer.appendChild(eventDiv);
+            wrapper.appendChild(eventDiv);
         });
+        
+        eventsContainer.appendChild(wrapper);
         
     } catch (error) {
         console.error('Error loading events:', error);
