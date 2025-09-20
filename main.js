@@ -74,8 +74,13 @@ async function loadEvents() {
             
             // Create event name element (link or plain text)
             if (event.description) {
+                // Clean the description to extract just the URL
+                let cleanDescription = event.description;
+                // Remove HTML tags if present
+                cleanDescription = cleanDescription.replace(/<[^>]*>/g, '');
+                
                 const urlRegex = /(https?:\/\/[^\s]+)/g;
-                const urls = event.description.match(urlRegex);
+                const urls = cleanDescription.match(urlRegex);
                 if (urls && urls.length > 0) {
                     // Create clickable link
                     const link = document.createElement('a');
